@@ -1,0 +1,13 @@
+
+@mixin font($color,$size,$family,$weight){
+	color:$color;
+	font-size: $size;
+	font-family: $family;
+	font-weight: $weight;
+}
+@mixin paddings($pad...){
+	padding: $pad;
+}
+@mixin borderColor($border){
+	border:$border;
+}

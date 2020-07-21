@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Snow | One Page Agency</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+</head>
+<body>
+	 <!-- CONTAINER -->
+	<div class="container-fluid justify-content-center">
+		<!-- HEADER -->
+		<section id="top-wrapper" class="row">
+			<div id="top" class="col-md-12">	
+			<header class="header">
+				<nav class="navbar navbar-expand-md" v-scroll="handleScroll()">
+					<div class="container">
+					<a href="index.html" class="navbar-brand">
+						<img src="img/logo-light.svg" alt="logo">
+					</a>
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item"><a href="#about-agency" class="nav-link">about</a></li>
+						<li class="nav-item"><a href="#contact-info" class="nav-link">contact</a></li>
+						<li class="nav-item"><a href="portfolio.html" class="nav-link">portfolio</a></li>
+						<li class="nav-item"><a href="#" class="nav-link">blog</a></li>
+					</ul>
+					<button class="header-toggler ml-auto">
+						<div></div>
+						<div></div>
+						<div></div>
+					</button>
+					</div>
+				</nav>
+			<div class="mobile-header">
+				<nav>
+					<ul>
+						<li class="nav-item"><a href="#about-agency" class="nav-link">about</a></li>
+						<li class="nav-item"><a href="#contact-info" class="nav-link">contact</a></li>
+						<li class="nav-item"><a href="portfolio.html" class="nav-link">portfolio</a></li>
+						<li class="nav-item"><a href="blog.html" class="nav-link">blog</a></li>
+					</ul>
+				</nav>
+			</div>
+
+			</header>
+			<div class="des-wpapper">
+				<div class="description">
+					<h2 class="main-name">new branding agency</h2>
+					<h1>We are about to change the way <br><em>you publish on the web</em></h1>
+				</div>
+			</div>
+			<div class="button-down-wrapper">
+				<a href="#about">
+					<div class="button-down"></div>
+				</a>
+			</div>
+			</div>
+		</section>
+		<!-- END HEADER -->
+
+		<!-- ABOUT AGENCY -->
+		<section id="about-agency">
+			<div class="container">
+				<div  class="row justify-content-center">
+					<div id="about" class="col-md-9 col-sm-12">
+					<h2>About Our Agency</h2>
+					<p>We are a new design studio based in USA. We have over 20 years of combined experience, and know a thing or two about designing websites and mobile apps. Clever use of technology and lean processes enable us to work faster and smarter.</p>
+					<img src="img/about-me-signature.png" alt="signature">
+				</div>
+				</div>
+			</div>
+				
+				<div id="results">
+					<div class="container">
+					<ul class="row">
+						<li class="col-md-3 col-sm-12">
+							<div class="result">
+								<img src="img/vue.png" alt="">
+								<span>548 <br> PROJECTS COMPLETED</span>
+							</div>
+						</li>
+						<li class="col-md-3 col-sm-12">
+							<div class="result">
+								<img src="img/vue.png" alt="">
+								<span>1465 <br>WORKING HOURS</span>
+							</div>
+						</li>
+						<li class="col-md-3 col-sm-12">
+							<div class="result">
+								<img src="img/vue.png" alt="">
+								<span>612 <br> POSITIVE FEEDBACKS</span>
+							</div>
+						</li>
+						<li class="col-md-3 col-sm-12">
+							<div class="result">
+								<img src="img/vue.png" alt="">
+								<span>735 <br> HAPPY CLIENTS</span>
+							</div>
+						</li>
+					</ul>
+					</div>
+				</div>
+		</section>
+		<!-- END ABOUT AGENCY -->
+		<!-- BEST PROJECTS -->
+		<section id="best-projects-wrapper">
+			<div class="container">
+				<div class="row justify-content-center text-center">
+					<div class="col-9">
+						<div id="best-projects-text">
+						<h2>Best Projects</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio rem ullam veniam dolor assumenda voluptate officia impedit cum amet, deleniti vero voluptatibus dolorem non odit? Atque voluptatum repellat in nisi.</p>
+						</div>
+					</div>
+				</div>
+				<div id="grid" class="row">
+				<grid 
+				v-for="item in headers" 
+				:text="item.text" 
+				:type="item.type"
+				:link="item.link"
+				:background="item.bg_img"
+				:key="item.id"></grid>
+			</div>
+			</div>
+			<div id="slider">
+				<div class="container">
+				<transition name="slider" mode="out-in">
+				<slider 
+				v-for="(slide,index) in quotes"
+				v-if="index === currentIndex"
+				:key="slide.id"
+				:quote="slide.quote"
+				:author="slide.author"></slider>
+				</transition>
+				<button 
+				v-for="(btn,index) in quotes"
+				:class="{active:index === currentIndex}"
+				@click="currentIndex = index">&bull;</button>
+				</div>
+			</div>
+		</section>
+		<!-- END BEST PROJECTS -->
+		<!-- LATEST BLOG -->
+		<section id="latest-blog" class="text-center">
+			<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-8 col-sm-12">
+					<div class="blog-description">
+						<h2>Latest Blog</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste molestiae asperiores quis quos provident eaque neque id ex numquam soluta eius laborum</p>
+					</div>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div id="blog-slider" class="col-md-5 col-sm-12">
+					<blog-slider
+					v-for="(slide,index) in slides"
+					v-show="index === currentIndex"
+					:key="index"
+					:tag="slide.tag"
+					:link="slide.href"
+					:header="slide.header"
+					:background="slide.img"
+					:date="slide.date"
+					:description="slide.description"
+					></blog-slider>
+					<div class="slider-buttons">
+						<button v-for="(btn,index) in slides"
+						@click="currentIndex = index"
+						class="is-selected"
+						:class="{active:index === currentIndex}">&bull;</button>
+					</div>
+				</div>
+			</div>
+			</div>
+		</section>
+		<!-- END LATEST BLOG -->
+		<!-- CONTACT INFO -->
+		<section id="contact-info">
+			<div class="container">
+			<div class="row">
+			<div class="col-md-5">
+				<div class="contacts">
+					<h2>Contact Info:</h2>
+				<p>
+					Praesent interdum congue mauris, et fringilla lacus pel vitae. Quisque nisl mauris, aliquam eu ultrices vel, conse vitae sapien at imperdiet risus. Quisque cursus risus id. fermentum, in auctor quam consectetur.
+				</p>
+				<p><strong>Address: </strong>10111 Santa Monica Boulevard, LA</p>
+				<p><strong>Phone: </strong>+44 987 065 908</p>
+				<p><strong>Email: </strong>info@Example.com</p>
+				<p><strong>Fax: </strong>+44 987 065 909</p>
+				</div>
+			</div>
+			<div class="col-md-7">
+				<form action="index.html" class="inputs">
+				<input type="text" placeholder="Your Name" id="name">
+				<input type="text" placeholder="Your Email" id="email">
+				<input type="text" placeholder="Your title" id="title">
+				<textarea name="comment" id="comment" placeholder="Your Comment"></textarea>
+				<button type="submit" id="send-message">SEND MESSAGE</button>
+				</form>
+			</div>
+			</div>
+			</div>
+		</section>
+		<!-- END CONTACT INFO -->
+		<!-- FOOTER -->
+		<footer>
+			<ul class="social">
+				<li>
+					<a href="#"><img src="img/twitter.png" alt="twitter"></a>
+				</li>
+				<li>
+					<a href="#"><img src="img/facebook.png" alt="facebook"></a>
+				</li>
+				<li>
+					<a href="#"><img src="img/basket.png" alt="basket"></a>
+				</li>
+				<li>
+					<a href="#"><img src="img/instagram.png" alt="instagram"></a>
+				</li>
+			</ul>
+			<div class="copy">
+				<p>2016 &copy; Design by Raidan.</p>
+			</div>
+		</footer>
+		<!-- END FOOTER -->
+	</div>
+	<script src="js/jquery-3.5.1.min.js"></script>
+	<script src="js/vue.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/header.js"></script>
+</body>
+</html>
